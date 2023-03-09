@@ -1,2 +1,2 @@
 # Merit-calculator
-Meritvärdesberkäknare
+Meritvärdesberäknare
