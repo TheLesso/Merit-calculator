@@ -11,8 +11,15 @@ const match = {
 const prompt = promptSync()
 
 async function getData() {
-    const data = await readFile('./Studieplan.html', { encoding: 'utf8' });
-    const $ = cheerio.load(data);
+    try {
+        const data = await readFile('./Studieplan.html', { encoding: 'utf8' });
+        const $ = cheerio.load(data);
+    } catch (error) { }
+    //2
+    try {
+        const filename = process.argv[1];
+        const contents = await readFile(filename, { encoding: 'utf8' });
+    } catch (error) { }
     $('[scope=row] > td').each(function (i, y) {
         if ($(y).text() != "") {
             if ($(y).text().trim() != "") {
